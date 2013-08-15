@@ -76,6 +76,7 @@ h1 span {
 .middle-container {
 	position: relative;
 	float: left;
+	width: 100%;
 }
 
 .left {
