@@ -2,7 +2,7 @@ html, body {
 	position: relative;
 	width: 100%;
 	height: 100%;
-	background-color: #000000;
+	background-color: #313131;
 }
 
 header, footer {
@@ -25,29 +25,106 @@ h1 span {
 	font-style: italic;
 }
 
+img {
+	float: left;
+}
 
+.transparent {
+	opacity: 0;
+	-webkit-transition: opacity 500ms linear;
+	 -moz-transition:opacity 500ms linear;
+	 -o-transition: opacity 500ms linear;
+	 -ms-transition: opacity 500ms linear;
+	 transition: opacity 500ms linear;
+}
 
-/* @group controls */
+/* @group header */
+
+.header {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999998;
+	background-color: none;
+	-webkit-transition: background-color 500ms linear;
+	 -moz-transition: background-color 500ms linear;
+	 -o-transition: background-color 500ms linear;
+	 -ms-transition: background-color 500ms linear;
+	 transition: background-color 500ms linear;
+}
+
+.header:hover {
+	background-color: #1F1F1F;
+	-webkit-transition: background-color 500ms linear;
+     -moz-transition: background-color 500ms linear;
+     -o-transition: background-color 500ms linear;
+     -ms-transition: background-color 500ms linear;
+     transition: background-color 500ms linear;
+}
+
+h1 {
+	margin: 12px 30px 9px 30px;
+	float: left;
+}
+
+.tools {
+	position: relative;
+	float: right;
+	margin: 12px 27px 0;
+	width: 103px;
+}
+
+.tools a {
+	padding: 0 3px;
+	display: block;
+	float: right;
+}
+
+.tools .playIcon, 
+.tools .play .pauseIcon {
+	display: none;
+}
+
+.tools .play .playIcon, 
+.tools .pauseIcon {
+	display: block;
+}
+
+.playIcon {
+	padding-right: 4px;
+}
+
+/* @end header */
+
+/* @group screen controls */
 
   .prev, .next {
   	top: 40%;
+  	opacity: 1;
+  	-webkit-transition: opacity 500ms linear;
+  	 -moz-transition:opacity 500ms linear;
+  	 -o-transition: opacity 500ms linear;
+  	 -ms-transition: opacity 500ms linear;
+  	 transition: opacity 500ms linear;
+  	 z-index: 999997;
   }
 
   .prev {
   	right: auto;
-  	left: 10px;
+  	left: 20px;
   	text-align: left;
   	position: fixed;
   }
   
   .next {
-  	right: 10px;
+  	right: 20px;
   	left: auto;
   	text-align: right;
   	position: fixed;
   }
   
-/* @end controls */
+/* @end screen controls */
 
 /* @group splash */
 
@@ -58,17 +135,18 @@ h1 span {
 	top: 0;
 	left: 0;
 	z-index: 999999;
+/*	display: none;*/
 }
 
 .top {
 	width: 100%;
-	background: black;
-	height: 5%;
+	background: #1F1F1F;
+	height: 25%;
 }
 
 .bottom {
 	width: 100%;
-	background: black;
+	background: #1F1F1F;
 	height: 100%;
 	float: left;
 }
@@ -80,8 +158,8 @@ h1 span {
 }
 
 .left {
-	width: 20%;
-	background: black;
+	width: 32%;
+	background: #1F1F1F;
 	float: left;
 	position: absolute;
 	top: 0;
@@ -90,8 +168,8 @@ h1 span {
 }
 
 .right {
-	width: 20%;
-	background: black;
+	width: 32%;
+	background: #1F1F1F;
 	float: left;
 	position: absolute;
 	top: 0;
@@ -100,10 +178,10 @@ h1 span {
 }
 
 .middle {
-	width: 60%;
+	width: 36%;
 	display: block;
 	float: left;
-	margin: 0 20%;
+	margin: 0 32%;
 }
 
 .middle img {
@@ -112,3 +190,24 @@ h1 span {
 }
 
 /* @end splash */
+
+/* @group lyrics */
+
+.lyrics {
+	position: relative;
+	z-index: 999996;
+	width: 100%;
+	height: 83%;
+	top: 74px;
+	text-align: center;
+	display: none;
+}
+
+.lyrics img {
+	display: block;
+	margin: 0 auto;
+	max-height: 100%;
+	float: none;
+}
+
+/* @end lyrics */

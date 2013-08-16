@@ -1,13 +1,37 @@
         $(window).load(function() {
         
-        	$(".splash").delay(5000).fadeOut(5000, function() {
+        	// remove the splash screen on click or after timer
+        
+        	$(".splash").on('click', function() {
         	
-        		$(this).remove();
+        		$(this).fadeOut(5000);
         	
         	});
-        	
+        
+        	setTimeout(function(){
+        	        $(".splash").fadeOut(5000, function() {
+        	        	$(".splash").remove();
+        	        });
+        	    },5000)      
+
+			$('.pauseplay').on('click', function(event) {
+				
+				event.preventDefault();
+				
+				$(this).toggleClass('play');
+			
+			});  	
+			
+			$('.lyrics_button').on('click', function(event) {
+			
+				event.preventDefault();
+				
+				$('.lyrics').fadeToggle(1000);
+			
+			});
         
         });
+        
         
         
         $(function() {
@@ -20,7 +44,7 @@
             var isShowingPlaylist = false;
             var isHidden = false;
             var autoHideTimer;
-            var $showContentButton = $('<div class="touchscreen-show-button box">Back</div>')
+            autoHide(true);
             
             // initialize BigVideo
             var BV = new $.BigVideo({forceAutoplay:isTouch});
@@ -45,12 +69,22 @@
                 
                 }
                 
-                autoHide(true);
+                
                 isShowingPlaylist = true;
                 
             })
 
-
+			// Turn off autohiding when mouse is over the nav 
+			// (not necessary for touchscreens)
+			if (!isTouch) {
+			    $('.playlist-btn')
+			        .on('mouseover', function() {
+			            if (isShowingPlaylist) autoHide(false);
+			        })
+			        .on('mouseout', function() {
+			            if (isShowingPlaylist) autoHide(true);
+			        });
+			} 
 
             function autoHide(enable) {
                 if (enable) {
@@ -58,12 +92,12 @@
                     $('body').on('mousemove', function(event){
                         if (isHidden) {
                             isHidden = false;
-                            $('.nav, .main').removeClass('transparent');
+                            $('.playlist-btn').removeClass('transparent');
                         }
                         clearTimeout(autoHideTimer);
                         autoHideTimer = setTimeout(function() {
                             isHidden = true;
-                            $('.nav, .main').addClass('transparent');
+                            $('.playlist-btn').addClass('transparent');
                         }, 1000);
                     });    
                 } else {
