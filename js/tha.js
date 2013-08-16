@@ -1,5 +1,21 @@
         $(window).load(function() {
         
+        	SC.initialize({
+        	  client_id: 'a9abff004db15575ced769669421e015'
+        	});
+        	
+        	// permalink to a track
+        	var track_url = 'http://soundcloud.com/thehundredthanniversary/last-drive-1/';
+        	
+        	var sound = null;
+        	
+        	SC.get('/resolve', { url: track_url }, function(track) {
+        	  SC.stream('/tracks/' + track.id, function(sc_sound){
+        	  	sound = sc_sound;
+        	    sound.play();
+        	  });
+        	});
+        
         	// remove the splash screen on click or after timer
         
         	$(".splash").on('click', function() {
@@ -19,6 +35,13 @@
 				event.preventDefault();
 				
 				$(this).toggleClass('play');
+				
+				if ($(this).hasClass('play')) {
+					sound.pause();
+				} else {
+					sound.play();
+				}
+					
 			
 			});  	
 			
@@ -29,7 +52,9 @@
 				$('.lyrics').fadeToggle(1000);
 			
 			});
-        
+
+			
+			
         });
         
         
@@ -51,24 +76,45 @@
             BV.init();
             // show background image
             BV.show('media/1.m4v', {ambient:true});
-
+			
             // Playlist button click starts video, enables autohiding
             $('.playlist-btn').on('click', function(e) {
                 e.preventDefault();
 
-                BV.show('media/'+$(this).data('src')+'.m4v', {ambient:true});
+	
+				if ($(this).data('src') != 8) { 
+
+					if ($('.final').is(':visible')) {
+						$('.final').fadeOut('slow');
+					}
+
+					// show the next video as normal
+	                BV.show('media/'+$(this).data('src')+'.m4v', {ambient:true});
+
+	                
+	            } else {
+	            
+	            	// show the download page
+	            	BV.triggerPlayer('pause');
+	            	
+	            	$('.final').fadeIn('slow');
+	            
+	            }
                 
                 // controls
                 if ($(this).hasClass('next')) {
                 
-                	$(this).data('src',(($(this).data('src') + 1) > 7 ? 1 : ($(this).data('src') + 1)))
+               		$('.next').data('src',(($('.next').data('src') + 1) > 8 ? 1 : ($('.next').data('src') + 1)))
+               		$('.prev').data('src',(($('.prev').data('src') + 1) > 8 ? 1 : ($('.prev').data('src') + 1)))
+               		
                 
                 } else {
                 
-                	$(this).data('src',(($(this).data('src') - 1) < 1 ? 7 : ($(this).data('src') - 1)))
+               		$('.prev').data('src',(($('.prev').data('src') - 1) < 1 ? 8 : ($('.prev').data('src') - 1)))
+               		$('.next').data('src',(($('.next').data('src') - 1) < 1 ? 8 : ($('.next').data('src') - 1)))
+               		
                 
                 }
-                
                 
                 isShowingPlaylist = true;
                 
