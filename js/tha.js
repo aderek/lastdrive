@@ -52,6 +52,16 @@
 				$('.lyrics').fadeToggle(1000);
 			
 			});
+			
+			$('.download_text').on('click', function() {
+				
+				$(this).fadeOut('fast', function() {
+				
+					$('.thanks').fadeIn('fast');
+				
+				});
+				
+			});
 
 			
 			
