@@ -2,7 +2,7 @@ html, body {
 	position: relative;
 	width: 100%;
 	height: 100%;
-	background-color: #313131;
+	background-color: #1f1f1f;
 }
 
 header, footer {
@@ -82,13 +82,13 @@ h1 {
 	float: right;
 }
 
-.tools .playIcon, 
-.tools .play .pauseIcon {
+.playIcon, 
+.play .pauseIcon {
 	display: none;
 }
 
-.tools .play .playIcon, 
-.tools .pauseIcon {
+.play .playIcon, 
+.pauseIcon {
 	display: block;
 }
 
@@ -187,6 +187,70 @@ h1 {
 .middle img {
 	max-width: 100%;
 	float: left;
+}
+
+.download_link {
+	display: none;
+}
+
+@media (max-width: 568px) {
+
+	.top {
+		height: 0;
+	}
+	
+	.middle {
+		background: #1f1f1f url('../img/ld.gif') no-repeat center center;
+		width: 100%;
+		margin: 0;
+	}
+	
+	.middle img {
+		width: 261px;
+		display: block;
+		margin: 0 auto;
+		float: none;
+	}
+	
+	.left, .right {
+		display: none;
+	}
+	
+	.download_link {
+		clear: left;
+		text-align: center;
+		margin-top: 20px;
+		display: block;
+		float: left;
+		width: 100%;
+	}
+	
+	.playIcon, 
+	.play .pauseIcon {
+		display: inline;
+	}
+	
+	.play .playIcon, 
+	.pauseIcon {
+		display: none;
+	}
+	
+	.download_link img {
+		float: none;
+	}
+	
+	.prev, .next {
+		display: none !important;
+	}
+
+}
+
+@media (max-width: 320px) {
+
+	.top {
+		height: 25%;
+	}
+	
 }
 
 /* @end splash */

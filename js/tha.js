@@ -1,34 +1,41 @@
         $(window).load(function() {
-        
-        	SC.initialize({
-        	  client_id: 'a9abff004db15575ced769669421e015'
-        	});
         	
-        	// permalink to a track
-        	var track_url = 'http://soundcloud.com/thehundredthanniversary/last-drive-1/';
-        	
-        	var sound = null;
-        	
-        	SC.get('/resolve', { url: track_url }, function(track) {
-        	  SC.stream('/tracks/' + track.id, function(sc_sound){
-        	  	sound = sc_sound;
-        	    sound.play();
-        	  });
-        	});
-        
-        	// remove the splash screen on click or after timer
-        
-        	$(".splash").on('click', function() {
-        	
-        		$(this).fadeOut(5000);
-        	
-        	});
-        
-        	setTimeout(function(){
-        	        $(".splash").fadeOut(5000, function() {
-        	        	$(".splash").remove();
-        	        });
-        	    },5000)      
+	        	SC.initialize({
+	        	  client_id: 'a9abff004db15575ced769669421e015'
+	        	});
+	        	
+	        	// permalink to a track
+	        	var track_url = 'http://soundcloud.com/thehundredthanniversary/last-drive-1/';
+	        	
+	        	var sound = null;
+	        	
+	        	SC.get('/resolve', { url: track_url }, function(track) {
+	        	  SC.stream('/tracks/' + track.id, function(sc_sound){
+	        	  	sound = sc_sound;
+	        	  	
+	        	  	// we only want to play the audio if we're on desktop
+	        	  	if ($(window).width() > 568) {
+	        	    	sound.play();
+	        	    } 
+	        	  });
+	        	});
+	        
+	        	// remove the splash screen on click or after timer
+	       if ($(window).width() > 568) {
+	       
+	        	$(".splash").on('click', function() {
+	        	
+	        		$(this).fadeOut(5000);
+	        	
+	        	});
+	        
+	        	setTimeout(function(){
+	        	        $(".splash").fadeOut(5000, function() {
+	        	        	$(".splash").remove();
+	        	        });
+	        	    },5000)      
+
+			}
 
 			$('.pauseplay').on('click', function(event) {
 				
@@ -36,7 +43,7 @@
 				
 				$(this).toggleClass('play');
 				
-				if ($(this).hasClass('play')) {
+				if ($(this).find('.playIcon').is(':visible')) {
 					sound.pause();
 				} else {
 					sound.play();
@@ -81,11 +88,15 @@
             var autoHideTimer;
             autoHide(true);
             
-            // initialize BigVideo
-            var BV = new $.BigVideo({forceAutoplay:isTouch});
-            BV.init();
-            // show background image
-            BV.show('media/1.m4v', {ambient:true});
+            if ($(window).width() > 568) {
+            
+	            // initialize BigVideo
+	            var BV = new $.BigVideo({forceAutoplay:isTouch});
+	            BV.init();
+	            // show background image
+	            BV.show('media/1.m4v', {ambient:true});
+	            
+	        }
 			
             // Playlist button click starts video, enables autohiding
             $('.playlist-btn').on('click', function(e) {
