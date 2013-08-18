@@ -220,7 +220,7 @@ h1 {
 /* @group final */
 
 .final {
-	background: #313131 url('../img/finalbg.png') no-repeat center center;
+	background: #1f1f1f url('../img/finalbg.png') no-repeat center center;
 	position: fixed;
 	width: 100%;
 	height: 100%;
