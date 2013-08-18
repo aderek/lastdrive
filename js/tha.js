@@ -1,3 +1,15 @@
+		$(document).ready(function() {
+		
+			var is_video = Modernizr.video;
+			
+			if (is_video) {
+			
+				$('html').removeClass('no-video');
+			
+			}
+		
+		});
+
         $(window).load(function() {
         	
 	        	SC.initialize({

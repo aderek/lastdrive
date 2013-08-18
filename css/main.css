@@ -193,65 +193,6 @@ h1 {
 	display: none;
 }
 
-@media (max-width: 568px) {
-
-	.top {
-		height: 0;
-	}
-	
-	.middle {
-		background: #1f1f1f url('../img/ld.gif') no-repeat center center;
-		width: 100%;
-		margin: 0;
-	}
-	
-	.middle img {
-		width: 261px;
-		display: block;
-		margin: 0 auto;
-		float: none;
-	}
-	
-	.left, .right {
-		display: none;
-	}
-	
-	.download_link {
-		clear: left;
-		text-align: center;
-		margin-top: 20px;
-		display: block;
-		float: left;
-		width: 100%;
-	}
-	
-	.playIcon, 
-	.play .pauseIcon {
-		display: inline;
-	}
-	
-	.play .playIcon, 
-	.pauseIcon {
-		display: none;
-	}
-	
-	.download_link img {
-		float: none;
-	}
-	
-	.prev, .next {
-		display: none !important;
-	}
-
-}
-
-@media (max-width: 320px) {
-
-	.top {
-		height: 25%;
-	}
-	
-}
 
 /* @end splash */
 
@@ -316,3 +257,157 @@ h1 {
 }
 
 /* @end final */
+
+/* @group mobile */
+
+@media (max-width: 568px) {
+
+	.top {
+		height: 0;
+	}
+	
+	.middle {
+		background: #1f1f1f url('../img/ld.gif') no-repeat center center;
+		width: 100%;
+		margin: 0;
+	}
+	
+	.middle img {
+		width: 261px;
+		display: block;
+		margin: 0 auto;
+		float: none;
+	}
+	
+	.left, .right {
+		display: none;
+	}
+	
+	.download_link {
+		clear: left;
+		text-align: center;
+		margin-top: 20px;
+		display: block;
+		float: left;
+		width: 100%;
+	}
+	
+	.playIcon, 
+	.play .pauseIcon {
+		display: inline;
+	}
+	
+	.play .playIcon, 
+	.pauseIcon {
+		display: none;
+	}
+	
+	.download_link img {
+		float: none;
+	}
+	
+	.prev, .next {
+		display: none !important;
+	}
+	
+	.final {
+		background: none !important;
+	}
+
+}
+
+@media (max-width: 320px) {
+
+	.top {
+		height: 25%;
+	}
+	
+}
+
+.no-js .top,
+.no-video .top,
+.lt-ie9 .top {
+	height: 25%;
+}
+
+.no-js .middle,
+.no-video .middle,
+.lt-ie9 .middle {
+	background: #1f1f1f url('../img/ld.gif') no-repeat center center;
+	width: 100%;
+	margin: 0;
+}
+
+.no-js .middle img,
+.no-video .middle img,
+.lt-ie9 .middle img {
+	width: 261px;
+	display: block;
+	margin: 0 auto;
+	float: none;
+}
+
+.no-js .left,
+.no-video .left,
+.lt-ie9 .left,
+.no-js .right,
+.no-video .right,
+.lt-ie9 .right { 
+	display: none;
+}
+
+.no-js .download_link,
+.no-video .download_link,
+.lt-ie9 .download_link {
+	clear: left;
+	text-align: center;
+	margin-top: 20px;
+	display: block;
+	float: left;
+	width: 100%;
+}
+
+.no-js .playIcon,
+.no-video .playIcon,
+.lt-ie9 .playIcon,
+.no-js .play .pauseIcon,
+.no-video .play .pauseIcon,
+.lt-ie9 .play .pauseIcon { 
+	display: inline;
+}
+
+.no-js .pauseIcon,
+.no-video .pauseIcon,
+.lt-ie9 .pauseIcon,
+.no-js .play .playIcon,
+.no-video .play .playIcon,
+.lt-ie9 .play .playIcon { 
+	display: none;
+}
+
+.no-js .download_link img,
+.no-video .download_link img,
+.lt-ie9 .download_link img {
+	float: none;
+}
+
+.no-js .download_link .pauseplay {
+	display: none;
+}
+
+.no-js .prev,
+.no-video .prev,
+.lt-ie9 .prev,
+.no-js .next,
+.no-video .next,
+.lt-ie9 .next { 
+	display: none !important;
+}
+
+.no-js .final,
+.no-video .final,
+.lt-ie9 .final {
+	background: none !important;
+}
+
+/* @end mobile */
