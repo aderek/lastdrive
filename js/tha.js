@@ -1,11 +1,11 @@
 		$(document).ready(function() {
-		
-			var is_video = Modernizr.video;
 			
-			if (is_video) {
+			if (Modernizr.video) {
 			
 				$('html').removeClass('no-video');
 			
+			} else {
+				$('.vidph').remove();
 			}
 		
 		});
@@ -93,6 +93,7 @@
             // Use Modernizr to detect for touch devices, 
             // then serve them alternate background image content
             var isTouch = Modernizr.touch;
+            var isVideo = Modernizr.video;
             
             // vars for auto hiding
             var isShowingPlaylist = false;
@@ -100,13 +101,17 @@
             var autoHideTimer;
             autoHide(true);
             
-            if ($(window).width() > 568) {
+            if ($(window).width() > 568 && isVideo) {
             
 	            // initialize BigVideo
 	            var BV = new $.BigVideo({forceAutoplay:isTouch});
 	            BV.init();
-	            // show background image
+	            // show first video
 	            BV.show('media/1.m4v', {ambient:true});
+	            
+	            // start loading the next one
+	            $('.vidph').attr('src', 'media/2.m4v');
+	            $('.vidph').get(0).pause()
 	            
 	        }
 			
@@ -123,7 +128,13 @@
 
 					// show the next video as normal
 	                BV.show('media/'+$(this).data('src')+'.m4v', {ambient:true});
-
+	                
+	                if ($(this).data('src') < 7) { 
+	                
+						$('.vidph').attr('src', 'media/'+($(this).data('src')+1)+'.m4v');
+						$('.vidph').get(0).pause()
+					
+					}
 	                
 	            } else {
 	            

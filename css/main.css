@@ -258,6 +258,12 @@ h1 {
 
 /* @end final */
 
+.vidph {
+	position: absolute;
+	left: -99999em;
+	visibility: hidden;
+}
+
 /* @group mobile */
 
 @media (max-width: 568px) {
