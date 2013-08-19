@@ -307,7 +307,8 @@ h1 {
 	display: block;
 	clear: left;
 	color: #FFFFFF;
-	width: 300px;
+	width: 500px;
+	margin: 0 auto;
 }
 
 /* @group mobile */
