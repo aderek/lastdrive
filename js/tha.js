@@ -2,10 +2,11 @@
 			
 			if (Modernizr.video) {
 			
-				$('html').removeClass('no-video');
+				
 			
 			} else {
 				$('.vidph').remove();
+				$('html').addClass('no-video');
 			}
 		
 		});
@@ -27,12 +28,12 @@
 	        	  	
 	        	  	// we only want to play the audio if we're on desktop
 	        	  	if ($(window).width() > 568) {
-	        	    	sound.play();
+//	        	    	sound.play();
 	        	    } 
 	        	  });
 	        	});
 	        
-	        	// remove the splash screen on click or after timer
+	        	// hide the splash screen on click or after timer
 	       if ($(window).width() > 568) {
 	       
 	        	$(".splash").on('click', function() {
@@ -43,11 +44,25 @@
 	        
 	        	setTimeout(function(){
 	        	        $(".splash").fadeOut(5000, function() {
-	        	        	$(".splash").remove();
+	        	        	
 	        	        });
 	        	    },5000)      
 
-			}
+			} // end if
+			
+			$('.download').hover(function(event) {
+			
+				$('.tools').toggleClass('show');
+			
+			});
+			
+			$('.about').click(function(event) {
+			
+				$('.about_container').fadeToggle('medium');
+			
+			});
+			
+			
 
 			$('.pauseplay').on('click', function(event) {
 				
@@ -115,6 +130,14 @@
 	            
 	        }
 			
+			$('video').on('click', function(e) {
+			
+				e.preventDefault();
+			
+				$('.playlist-btn.next').trigger('click');
+			
+			});
+			
             // Playlist button click starts video, enables autohiding
             $('.playlist-btn').on('click', function(e) {
                 e.preventDefault();
@@ -140,6 +163,8 @@
 	            
 	            	// show the download page
 	            	BV.triggerPlayer('pause');
+	            	
+	            	$('.lyrics').fadeOut('fast');
 	            	
 	            	$('.final').fadeIn('slow');
 	            
