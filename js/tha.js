@@ -26,7 +26,7 @@
 	        	  	
 	        	  	// we only want to play the audio if we're on desktop
 	        	  	if ($(window).width() > 568) {
-//	        	    	sound.play();
+	        	    	sound.play();
 	        	    } 
 	        	  });
 	        	});
@@ -122,7 +122,7 @@
 	            var BV = new $.BigVideo({forceAutoplay:isTouch});
 	            BV.init();
 	            // show first video
-//	            BV.show('media/1.m4v', {altSource:'media/1.webm', ambient:true});
+	            BV.show('media/1.m4v', {altSource:'media/1.webm', ambient:true});
 	            
 	            // start loading the next one
 	            $('.vidph').attr('src', 'media/2.m4v');
