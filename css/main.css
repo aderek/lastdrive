@@ -306,6 +306,8 @@ h1 {
 .ie .ie_message {
 	display: block;
 	clear: left;
+	color: #FFFFFF;
+	width: 300px;
 }
 
 /* @group mobile */
