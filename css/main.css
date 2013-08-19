@@ -234,7 +234,7 @@ h1 {
 /* @group lyrics */
 
 .lyrics {
-	position: relative;
+	position: fixed;
 	z-index: 999996;
 	width: 100%;
 	height: 83%;

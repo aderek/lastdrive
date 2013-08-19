@@ -1,9 +1,7 @@
 		$(document).ready(function() {
 			
 			if (Modernizr.video) {
-			
-				
-			
+
 			} else {
 				$('.vidph').remove();
 				$('html').addClass('no-video');
@@ -57,6 +55,8 @@
 			});
 			
 			$('.about').click(function(event) {
+			
+				event.preventDefault();
 			
 				$('.about_container').fadeToggle('medium');
 			
@@ -122,7 +122,7 @@
 	            var BV = new $.BigVideo({forceAutoplay:isTouch});
 	            BV.init();
 	            // show first video
-	            BV.show('media/1.m4v', {ambient:true});
+//	            BV.show('media/1.m4v', {altSource:'media/1.webm', ambient:true});
 	            
 	            // start loading the next one
 	            $('.vidph').attr('src', 'media/2.m4v');
@@ -143,16 +143,16 @@
                 e.preventDefault();
 
 	
-				if ($(this).data('src') != 8) { 
+				if ($(this).data('src') != 12) { 
 
 					if ($('.final').is(':visible')) {
 						$('.final').fadeOut('slow');
 					}
 
 					// show the next video as normal
-	                BV.show('media/'+$(this).data('src')+'.m4v', {ambient:true});
+	                BV.show('media/'+$(this).data('src')+'.m4v', {altSource:'media/'+$(this).data('src')+'.webm', ambient:true});
 	                
-	                if ($(this).data('src') < 7) { 
+	                if ($(this).data('src') < 11) { 
 	                
 						$('.vidph').attr('src', 'media/'+($(this).data('src')+1)+'.m4v');
 						$('.vidph').get(0).pause()
@@ -173,14 +173,14 @@
                 // controls
                 if ($(this).hasClass('next')) {
                 
-               		$('.next').data('src',(($('.next').data('src') + 1) > 8 ? 1 : ($('.next').data('src') + 1)))
-               		$('.prev').data('src',(($('.prev').data('src') + 1) > 8 ? 1 : ($('.prev').data('src') + 1)))
+               		$('.next').data('src',(($('.next').data('src') + 1) > 12 ? 1 : ($('.next').data('src') + 1)))
+               		$('.prev').data('src',(($('.prev').data('src') + 1) > 12 ? 1 : ($('.prev').data('src') + 1)))
                		
                 
                 } else {
                 
-               		$('.prev').data('src',(($('.prev').data('src') - 1) < 1 ? 8 : ($('.prev').data('src') - 1)))
-               		$('.next').data('src',(($('.next').data('src') - 1) < 1 ? 8 : ($('.next').data('src') - 1)))
+               		$('.prev').data('src',(($('.prev').data('src') - 1) < 1 ? 12 : ($('.prev').data('src') - 1)))
+               		$('.next').data('src',(($('.next').data('src') - 1) < 1 ? 12 : ($('.next').data('src') - 1)))
                		
                 
                 }
