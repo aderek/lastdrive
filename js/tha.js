@@ -32,7 +32,7 @@
 	        	});
 	        
 	        	// hide the splash screen on click or after timer
-	       if ($(window).width() > 568 && !$('html').hasClass('lt-ie9')) {
+	       if ($(window).width() > 568 && !$('html').hasClass('ie')) {
 	       
 	        	$(".splash").on('click', function() {
 	        	

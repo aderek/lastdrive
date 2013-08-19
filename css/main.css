@@ -299,6 +299,15 @@ h1 {
 	visibility: hidden;
 }
 
+.ie_message {
+	display: none;
+}
+
+.ie .ie_message {
+	display: block;
+	clear: left;
+}
+
 /* @group mobile */
 
 @media (max-width: 568px) {
@@ -367,13 +376,13 @@ h1 {
 
 .no-js .top,
 .no-video .top,
-.lt-ie9 .top {
+.ie .top {
 	height: 25%;
 }
 
 .no-js .middle,
 .no-video .middle,
-.lt-ie9 .middle {
+.ie .middle {
 	background: #1f1f1f url('../img/ld.gif') no-repeat center center;
 	width: 100%;
 	margin: 0;
@@ -381,7 +390,7 @@ h1 {
 
 .no-js .middle img,
 .no-video .middle img,
-.lt-ie9 .middle img {
+.ie .middle img {
 	width: 261px;
 	display: block;
 	margin: 0 auto;
@@ -390,16 +399,16 @@ h1 {
 
 .no-js .left,
 .no-video .left,
-.lt-ie9 .left,
+.ie .left,
 .no-js .right,
 .no-video .right,
-.lt-ie9 .right { 
+.ie .right { 
 	display: none;
 }
 
 .no-js .download_link,
 .no-video .download_link,
-.lt-ie9 .download_link {
+.ie .download_link {
 	clear: left;
 	text-align: center;
 	margin-top: 20px;
@@ -410,25 +419,25 @@ h1 {
 
 .no-js .playIcon,
 .no-video .playIcon,
-.lt-ie9 .playIcon,
+.ie .playIcon,
 .no-js .play .pauseIcon,
 .no-video .play .pauseIcon,
-.lt-ie9 .play .pauseIcon { 
+.ie .play .pauseIcon { 
 	display: inline;
 }
 
 .no-js .pauseIcon,
 .no-video .pauseIcon,
-.lt-ie9 .pauseIcon,
+.ie .pauseIcon,
 .no-js .play .playIcon,
 .no-video .play .playIcon,
-.lt-ie9 .play .playIcon { 
+.ie .play .playIcon { 
 	display: none;
 }
 
 .no-js .download_link img,
 .no-video .download_link img,
-.lt-ie9 .download_link img {
+.ie .download_link img {
 	float: none;
 }
 
@@ -438,16 +447,16 @@ h1 {
 
 .no-js .prev,
 .no-video .prev,
-.lt-ie9 .prev,
+.ie .prev,
 .no-js .next,
 .no-video .next,
-.lt-ie9 .next { 
+.ie .next { 
 	display: none !important;
 }
 
 .no-js .final,
 .no-video .final,
-.lt-ie9 .final {
+.ie .final {
 	background: none !important;
 }
 
