@@ -123,7 +123,7 @@
 	            BV.init();
 	            // show first video
 	            if(Modernizr.video.h264) {
-	            	BV.show('http://aderek.github.io/lastdrive/media/1.mp4', {ambient:true});
+	            	BV.show('media/1.m4v', {ambient:true});
 	            } else if(Modernizr.video.webm) {
 	            	BV.show('media/1.webm', {ambient:true}); 
 	            }
