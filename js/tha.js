@@ -123,14 +123,14 @@
 	            BV.init();
 	            // show first video
 	            if(Modernizr.video.h264) {
-	            	BV.show('media/1.m4v', {ambient:true});
+	            	BV.show('https://lastdrive.s3.amazonaws.com/1.mp4', {ambient:true});
 	            } else if(Modernizr.video.webm) {
-	            	BV.show('media/1.webm', {ambient:true}); 
+	            	BV.show('https://lastdrive.s3.amazonaws.com/1.webm', {ambient:true}); 
 	            }
 	            
 	            // start loading the next one
 	            if(Modernizr.video.h264) {
-		            $('.vidph').attr('src', 'media/2.m4v');
+		            $('.vidph').attr('src', 'https://lastdrive.s3.amazonaws.com/2.mp4');
 		            $('.vidph').get(0).pause()
 	            }
 	            
@@ -156,12 +156,12 @@
 					}
 
 					// show the next video as normal
-	                BV.show('media/'+$(this).data('src')+'.m4v', {altSource:'media/'+$(this).data('src')+'.webm', ambient:true});
+	                BV.show('https://lastdrive.s3.amazonaws.com/'+$(this).data('src')+'.mp4', {altSource:'https://lastdrive.s3.amazonaws.com/'+$(this).data('src')+'.webm', ambient:true});
 	                
 	                if ($(this).data('src') < 11) { 
 	                	
 	                	if(Modernizr.video.h264) {
-							$('.vidph').attr('src', 'media/'+($(this).data('src')+1)+'.m4v');
+							$('.vidph').attr('src', 'https://lastdrive.s3.amazonaws.com/'+($(this).data('src')+1)+'.mp4');
 							$('.vidph').get(0).pause()
 						}
 					
