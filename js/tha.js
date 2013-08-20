@@ -122,11 +122,10 @@
 	            var BV = new $.BigVideo({forceAutoplay:isTouch});
 	            BV.init();
 	            // show first video
-	            if(Modernizr.video.webm) {
+	            if(Modernizr.video.h264) {
+	            	BV.show('media/1.mp4', {ambient:true});
+	            } else if(Modernizr.video.webm) {
 	            	BV.show('media/1.webm', {ambient:true});
-	            }
-	            else if(Modernizr.video.h264) {
-	            	BV.show('media/1.m4v', {ambient:true});
 	            }
 	            
 	            // start loading the next one
